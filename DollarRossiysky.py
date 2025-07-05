@@ -109,7 +109,7 @@ def dollar_olish_sotish(message):
     kurs = get_cb_rate('USD') # Получаем текущий курс доллара от ЦБ (динамически)
 
     if kurs is None: # Проверяем, удалось ли получить курс
-        bot.send_message(user_id, 'Не удалось получить курс доллара. Попробуйте позже.', reply_markup=types.ReplyKeyboardRemove())
+        bot.send_message(user_id, 'Bugun ishlamiymiz.', reply_markup=types.ReplyKeyboardRemove())
         return # Прерываем выполнение функции, если курс не получен
 
     if message.text == 'Olish': # Если пользователь выбрал "Olish" (Купить)
@@ -198,7 +198,7 @@ def Rossiyskiy_olish_sotish(message):
     kurs = get_cb_rate('RUB') # Получаем текущий курс российского рубля от ЦБ (динамически)
 
     if kurs is None: # Проверяем, удалось ли получить курс
-        bot.send_message(user_id, 'Не удалось получить курс рубля. Попробуйте позже.', reply_markup=types.ReplyKeyboardRemove())
+        bot.send_message(user_id, 'Bugun ishlamiymiz', reply_markup=types.ReplyKeyboardRemove())
         return # Прерываем выполнение функции, если курс не получен
 
     if message.text == 'Olish': # Если пользователь выбрал "Olish" (Купить)
