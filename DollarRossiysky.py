@@ -1,3 +1,4 @@
+import os
 import telebot # Импортируем библиотеку PyTelegramBotAPI для создания бота
 from telebot import types # Импортируем модуль types из telebot для работы с типами объектов Telegram (например, клавиатурами)
 import requests # Импортируем библиотеку requests для выполнения HTTP-запросов (получения данных из интернета)
@@ -76,8 +77,12 @@ def ha_yoq_buttons():
     return kb # Возвращаем объект клавиатуры
 
 
+TOKEN = os.getenv("BOT_TOKEN")
+if not TOKEN:
+    raise RuntimeError("BOT_TOKEN env var is missing")
+
 # Создаем объект бота
-bot = telebot.TeleBot('****') # Инициализируем бота, передавая ему токен.
+bot = telebot.TeleBot(TOKEN)
 
 
 # Обработчик команды /start
@@ -271,3 +276,4 @@ def handle_rubl_sotish_amount(message, selling_rate_rubl):
 
 # Запуск бота
 bot.polling(non_stop=True) # Запускаем бесконечный цикл обработки входящих сообщений. Бот будет работать постоянно, пока не будет остановлен вручную или не возникнет критическая ошибка.
+
